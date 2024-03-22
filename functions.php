@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>intro</title>
+    <title>Document</title>
 </head>
 <body>
     <?php
+        echo str_replace ("karmondy","Lina","hey karmondy");
 
-       /* $name = "Karm";
-        echo $name. " is a great driver!"; */
-    ?>
     
+
+    ?>
+
+
+
 </body>
 </html>
