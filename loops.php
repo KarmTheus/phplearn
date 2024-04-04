@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Document</title>
 </head>
-<body>
+
 <?php
     include 'includes/header.php';
 ?>    
