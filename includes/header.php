@@ -1,4 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<?php
+    session_start();
+?>
+
+
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +32,21 @@
         <li class="nav-item">
           <a class="nav-link" href="loops.php">Loops</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="superglobals.php">Superglobals</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<?php
+  $_SESSION['username'] = "Youser1450";
+  echo $_SESSION['username'];
+
+  if (!isset($_SESSION['username'])) {
+    echo " You are not logged in <br>";
+  } else {
+    echo " You're Logged in! <br>";
+  }
+?>
