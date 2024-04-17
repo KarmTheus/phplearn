@@ -35,6 +35,14 @@
         <li class="nav-item">
           <a class="nav-link" href="superglobals.php">Superglobals</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.php">Contact</a>
+        </li>
+
+
+
+
+
       </ul>
     </div>
   </div>
@@ -50,3 +58,5 @@
     echo " You're Logged in! <br>";
   }
 ?>
+
+
