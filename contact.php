@@ -13,7 +13,9 @@
     include 'includes/header.php';
 ?>
 
-<form action="includes/signup.php" method="POST">
+//puts stuff in the database
+
+<form action="includes/signup.inc.php" method="POST">
     <input type="text" name="user" placeholder="Username">
     <br>
     <input type="password" name="pwd" placeholder="Password">
