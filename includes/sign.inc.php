@@ -3,10 +3,10 @@
 
         require 'dbh.inc.php';
 
-        $username=$_POST['uid']
-        $email=$_POST['mail']
-        $password=$_POST['pwd']
-        $passwordRepeat=$_POST['pwd-repeat']
+        $username=$_POST['uid'];
+        $email=$_POST['mail'];
+        $password=$_POST['pwd'];
+        $passwordRepeat=$_POST['pwd-repeat'];
 
         if (empty($username) || empty($email) || empty($password) || empty($passwordRepeat)) {
             header("Location: ../signup.php?error=emptyfeilds&uid=" .$username."&mail=".$email);
@@ -29,11 +29,11 @@
         }
 
         else if ($password !== $passwordRepeat) {
-            header("Location: ../signup.php?error=passwordcheckuid=".$username."&mail=".$email);
+            header("Location: ../signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         }
 
         else {
-            $sql = "SELECT uidUsers FROM signlog WHERE uidUser=?";
+            $sql = "SELECT uidUsers FROM signlog WHERE uidUsers=?";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $sql)) {
                 header("Location: ../signup.php?error=sqlerror");
@@ -56,13 +56,26 @@
                         exit(); 
                     }
                     else {
+                        $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
+                        mysqli_stmt_bind_param($stmt,"sss", $username, $email, $hashedPwd);
+                        mysqli_stmt_execute($stmt);
+                        header("Location: ../signup.php?signup=success");
+                        exit(); 
 
                         
                     }
                 }
             }
         }
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+
+    }
+    else {
+        header("Location: ../signup.php");
+        exit(); 
     }
 
 

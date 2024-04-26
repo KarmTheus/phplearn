@@ -19,19 +19,20 @@
         echo $name. " is a great driver!"; 
     ?>
 
-    <form action="includes/login.php" method="post">
-        <input type="text" name="mailuid" placeholder="Username/E-mail">
-        <input type="password" name="pwd" placeholder="Password">
-        <button type="submit" name="login-submit">Login</button>
-    </form>
-    <a href="signup.php">Sign up</a>
-    <form action="includes/logout.php" method="post">
-        <button type="submit" name="logout-submit">Logout</button>
-    </form>
+    
 
 <main>
-    <p>Ur logged out</p>
-    <p>Ur logged in</p>
+    <?php
+        if(isset($_SESSION['userId'])) {
+            echo '<p class="login-status">Ur logged in</p>';
+        }
+        else {
+            echo '<p class="login-status">Ur logged out</p>';
+        }
+    ?>
+
+    
+    
 </main>
 
 
